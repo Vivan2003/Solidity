@@ -4,18 +4,17 @@ pragma solidity ^0.8.0;
 
 import "./SimpleStorage.sol";
 
-contract StorageFactory{
+contract StorageFactory {
 
-  SimpleStorage[] public SimpleStorageArray;
-   
-    function createSimpleStorageContract() public{
-         SimpleStorage simpleStorage = new SimpleStorage();
-        SimpleStorageArray.push(simpleStorage);
+SimpleStorage[] public SimpleStorageArray;
 
-    }
+  function CreateSimpleStorageContract() public {
+    SimpleStorage simpleStorage = new SimpleStorage();
+    SimpleStorageArray.push(simpleStorage);
 
+  }
+  function sfStore(uint256 _FavNumberIndex, uint256 _FavNumber) public {
+     SimpleStorage simpleStorage = SimpleStorage(address(SimpleStorageArray[_FavNumberIndex]));
+     simpleStorage.store(_FavNumber);
 
-
-
-
-}
+  }
