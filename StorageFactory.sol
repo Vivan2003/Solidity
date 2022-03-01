@@ -18,3 +18,9 @@ SimpleStorage[] public SimpleStorageArray;
      simpleStorage.store(_FavNumber);
 
   }
+   function sfGet(uint256 _FavNumberIndex) public view returns(uint256) {
+     SimpleStorage simpleStorage = SimpleStorage(address(SimpleStorageArray[_FavNumberIndex]));
+     return simpleStorage.retrieve();
+   }
+
+}
